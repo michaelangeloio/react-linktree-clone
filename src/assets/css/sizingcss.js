@@ -32,11 +32,11 @@ export const commonSpacingTop = {
 
 
 export const commonSpacingTop2 = {
-    marginTop: 2,
+    marginTop: 1,
     '@media (max-width:  768px) and (min-width: 401px)' : {
-        marginTop: 1
+        marginTop: .5
     },
     '@media (max-width: 400px)' : {
-        marginTop: 1
+        marginTop: .5
 }
 }

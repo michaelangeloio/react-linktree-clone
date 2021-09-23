@@ -18,17 +18,20 @@ import Avatar from '@mui/material/Avatar';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
-
 //mui icons
 import ComputerIcon from '@mui/icons-material/Computer';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import PetsIcon from '@mui/icons-material/Pets';
+import InsertLinkIcon from '@mui/icons-material/InsertLink';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WebIcon from '@mui/icons-material/Web';
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 //styling
 import menucss from '../../assets/css/menucss';
@@ -38,10 +41,9 @@ import {commonWidthMainMenu, commonSpacingTop} from '../../assets/css/sizingcss'
 // import ActionAreaCard from './MenuSubList'; assets
 import sheetscienceLogo from '../../assets/images/sheetscience-logo.png';
 
-
 const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-  });
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props}/>;
+});
 
 function Menu() {
 
@@ -96,214 +98,339 @@ function Menu() {
     };
   }, []);
   return (
-<div>
-    <Slide
-      direction="left"
-      in={start}
-      mountOnEnter
-      unmountOnExit
-      {...(start ? { timeout: 2000 } : {})}>
-      <Grid
-        container
-        spacing={1}
-        direction="column"
-        alignItems="center"
-        justify="center">
-
+    <div>
+      <Slide
+        direction="left"
+        in={start}
+        mountOnEnter
+        unmountOnExit
+        {...(start ? { timeout: 2000 } : {})}>
         <Grid
-          item
+          container
+          spacing={1}
+          direction="column"
+          alignItems="center"
+          justify="center">
+
+          <Grid
+            item
+            sx={{
+            ...commonWidthMainMenu,
+            ...commonSpacingTop
+          }}>
+            <Typography variant="h6" sx={{
+              color: "white"
+            }}>My Links</Typography>
+          </Grid>
+          <Grid item sx={commonWidthMainMenu}>
+            <List >
+
+              <Box
+                sx={{
+                ...commonStyles,
+                ...commonBorderColor
+              }}>
+                <ListItemButton onClick={handleMenu1} sx={commonBorderColor}>
+                  <ListItemIcon>
+                    <ComputerIcon fontSize='large' className={menuClasses.menuIconMain}/>
+                  </ListItemIcon>
+                  <ListItemText
+                    primary=
+                    {<Typography variant = "h6" className = {menuClasses.menuMainText}> Technology </Typography>}/> {menuItem1
+                    ? <ExpandLess className={menuClasses.menuIconSecondary}/>
+                    : <ExpandMore className={menuClasses.menuIconSecondary}/>}
+                </ListItemButton>
+
+                <Collapse in={menuItem1} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <ListItemButton
+                      component="a"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://about.michaelangrivera.com"
+                      sx={{
+                      pl: 4
+                    }}>
+                      <ListItemIcon>
+                        <AccessibilityNewIcon fontSize='large' className={menuClasses.menuIconMain2}/>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={< Typography variant = "h6" className = {
+                        menuClasses.menuMainText
+                      } > About Me </Typography>}/>
+
+                    </ListItemButton>
+                    <ListItemButton
+                      component="a"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://github.com/michaelangrivera"
+                      sx={{
+                      pl: 4
+                    }}>
+                      <ListItemIcon>
+                        <GitHubIcon
+                          sx={{
+                          fontSize: 30
+                        }}className={menuClasses.menuIconMain2}/>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={< Typography variant = "h6" className = {
+                        menuClasses.menuMainText
+                      } > My GitHub </Typography>}/>
+                    </ListItemButton>
+                  </List>
+                  <Grid
+                    item
+                    sx={{
+                    marginTop: 1,
+                    marginBottom: 2
+                  }}>
+                    <Divider >
+                      <Chip
+                        label={< Typography sx = {{fontSize: 18}}className = {
+                        menuClasses.menuMainText
+                      } > My Apps </Typography>}/>
+                    </Divider>
+                  </Grid>
+                  <Grid container justify="center">
+                    <Grid item sx={{
+                      marginLeft: 15
+                    }}></Grid>
+                  </Grid>
+
+                  <Stack
+                    direction="row"
+                    justifyContent="center"
+                    spacing={3}
+                    sx={{
+                    marginTop: 1,
+                    marginBottom: 2,
+                    ...commonWidthMainMenu
+                  }}>
+                    <Box
+                      component="a"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://github.com/michaelangrivera/michaelangrivera-links"
+                      sx={{
+                      textDecoration: 'none',
+                      '&:hover': {
+                        opacity: [0.9, 0.8, 0.7]
+                      }
+                    }}>
+                      <Grid container item justify="center">
+                        <InsertLinkIcon fontSize="large" className={menuClasses.menuIconMain}/>
+                        <Typography
+                          variant="h6"
+                          sx={{
+                          marginLeft: 1
+                        }}className={menuClasses.menuMainText}>
+                          Linktree Clone
+                        </Typography>
+                      </Grid>
+                    </Box>
+                  </Stack>
+
+                  <Stack
+                    direction="row"
+                    justifyContent="center"
+                    spacing={3}
+                    sx={{
+                    marginTop: 1,
+                    marginBottom: 2,
+                    ...commonWidthMainMenu
+                  }}>
+                    <Box
+                      sx={{
+                      '&:hover': {
+                        opacity: [0.9, 0.8, 0.7]
+                      }
+                    }}
+                      onClick={handleClick}>
+                      <Avatar src={sheetscienceLogo}/>
+                      <Typography variant="h6" className={menuClasses.menuMainText}>
+                        SheetScience
+                      </Typography>
+                    </Box>
+                    <Box
+                      sx={{
+                      '&:hover': {
+                        opacity: [0.9, 0.8, 0.7]
+                      }
+                    }}
+                      onClick={handleClick}>
+                      {< PetsIcon fontSize = 'large' sx = {{color: "#FFA500"}}/>}
+                      <Typography variant="h6" className={menuClasses.menuMainText}>
+                        PetKick
+                      </Typography>
+                    </Box>
+
+                  </Stack>
+
+                </Collapse>
+              </Box>
+            </List>
+
+          </Grid>
+
+          <Grid item sx={commonWidthMainMenu}>
+            <List >
+
+              <Box
+                sx={{
+                ...commonStyles,
+                ...commonBorderColor
+              }}>
+                <ListItemButton onClick={handleMenu2} sx={commonBorderColor}>
+                  <ListItemIcon>
+                    <DirectionsRunIcon fontSize='large' className={menuClasses.menuIconMain}/>
+                  </ListItemIcon>
+                  <ListItemText
+                    primary=
+                    {<Typography variant = "h6" className = {menuClasses.menuMainText}> Fitness & Endurance </Typography>}/> {menuItem1
+                    ? <ExpandLess className={menuClasses.menuIconSecondary}/>
+                    : <ExpandMore className={menuClasses.menuIconSecondary}/>}
+                </ListItemButton>
+
+                <Collapse in={menuItem2} timeout="auto" unmountOnExit>
+
+                  <List component="div" disablePadding>
+                    <ListItemButton
+                      component="a"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://instagram.com/michaelangelosweats"
+                      sx={{
+                      pl: 4
+                    }}>
+                      <ListItemIcon>
+                        <InstagramIcon fontSize='large' className={menuClasses.menuIconMain2}/>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={< Typography variant = "h6" className = {
+                        menuClasses.menuMainText
+                      } > michaelangelosweats </Typography>}/>
+
+                    </ListItemButton>
+                    <ListItemButton
+                      onClick={handleClick}
+                      sx={{
+                      pl: 4
+                    }}>
+                      <ListItemIcon>
+                        <WebIcon
+                          sx={{
+                          fontSize: 30
+                        }}className={menuClasses.menuIconMain2}/>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={< Typography variant = "h6" className = {
+                        menuClasses.menuMainText
+                      } > Fitness Blog </Typography>}/>
+                    </ListItemButton>
+                    <ListItemButton
+                      component="a"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://www.strava.com/athletes/49028135"
+                      sx={{
+                      pl: 4
+                    }}>
+                      <ListItemIcon>
+                        <DoubleArrowIcon
+                          sx={{
+                          fontSize: 30
+                        }}className={menuClasses.menuIconMain2}/>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={< Typography variant = "h6" className = {
+                        menuClasses.menuMainText
+                      } > Strava Profile </Typography>}/>
+                    </ListItemButton>
+                  </List>
+
+                </Collapse>
+              </Box>
+            </List>
+
+          </Grid>
+
+          <Grid item sx={commonWidthMainMenu}>
+            <List >
+
+              <Box
+                sx={{
+                ...commonStyles,
+                ...commonBorderColor
+              }}>
+                <ListItemButton onClick={handleMenu3} sx={commonBorderColor}>
+                  <ListItemIcon>
+                    <MusicNoteIcon fontSize='large' className={menuClasses.menuIconMain}/>
+                  </ListItemIcon>
+                  <ListItemText
+                    primary=
+                    {<Typography variant = "h6" className = {menuClasses.menuMainText}> Music & Percussion </Typography>}/> {menuItem1
+                    ? <ExpandLess className={menuClasses.menuIconSecondary}/>
+                    : <ExpandMore className={menuClasses.menuIconSecondary}/>}
+                </ListItemButton>
+
+                <Collapse in={menuItem3} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+
+                    <ListItemButton
+                      component="a"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://instagram.com/michaelangelodrums"
+                      sx={{
+                      pl: 4
+                    }}>
+                      <ListItemIcon>
+                        <InstagramIcon fontSize='large' className={menuClasses.menuIconMain2}/>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={< Typography variant = "h6" className = {
+                        menuClasses.menuMainText
+                      } > michaelangelodrums </Typography>}/>
+
+                    </ListItemButton>
+                    <ListItemButton
+                      component="a"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://www.youtube.com/user/michaelangelovideos/videos"
+                      sx={{
+                      pl: 4
+                    }}>
+                      <ListItemIcon>
+                        <YouTubeIcon fontSize='large' className={menuClasses.menuIconMain2}/>
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={< Typography variant = "h6" className = {
+                        menuClasses.menuMainText
+                      } > My Youtube </Typography>}/>
+                    </ListItemButton>
+                  </List>
+                </Collapse>
+              </Box>
+            </List>
+
+          </Grid>
+
+        </Grid>
+
+      </Slide>
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="error"
           sx={{
-          ...commonWidthMainMenu,
-          ...commonSpacingTop
+          width: '100%'
         }}>
-          <Typography variant="h6" sx={{
-            color: "white"
-          }}>My Links</Typography>
-        </Grid>
-        <Grid item sx={commonWidthMainMenu}>
-          <List >
-
-            <Box
-              sx={{
-              ...commonStyles,
-              ...commonBorderColor
-            }}>
-              <ListItemButton onClick={handleMenu1} sx={commonBorderColor}>
-                <ListItemIcon>
-                  <ComputerIcon fontSize='large' className={menuClasses.menuIconMain}/>
-                </ListItemIcon>
-                <ListItemText
-                  primary=
-                  {<Typography variant = "h6" className = {menuClasses.menuMainText}> Technology </Typography>}/> {menuItem1
-                  ? <ExpandLess className={menuClasses.menuIconSecondary}/>
-                  : <ExpandMore className={menuClasses.menuIconSecondary}/>}
-              </ListItemButton>
-
-              <Collapse in={menuItem1} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{
-                    pl: 4
-                  }}>
-                    <ListItemIcon>
-                      <AccessibilityNewIcon fontSize='large' className={menuClasses.menuIconMain2}/>
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={< Typography variant = "h6" className = {
-                      menuClasses.menuMainText
-                    } > About Me 
-                    </Typography>}/>
-
-                  </ListItemButton>
-                  <ListItemButton sx={{
-                    pl: 4
-                  }}>
-                    <ListItemIcon>
-                      <GitHubIcon
-                        sx={{
-                        fontSize: 30
-                      }}className={menuClasses.menuIconMain2}/>
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={< Typography variant = "h6" className = {
-                      menuClasses.menuMainText
-                    } > My GitHub </Typography>}/>
-                  </ListItemButton>
-                </List>
-                <Grid
-                  item
-                  sx={{
-                  marginTop: 1,
-                  marginBottom: 2
-                }}>
-                  <Divider >
-                    <Chip
-                      label={< Typography sx = {{fontSize: 18}}className = {
-                      menuClasses.menuMainText
-                    } > My Apps </Typography>}/>
-                  </Divider>
-                </Grid>
-                <Grid container justify="center">
-                  <Grid item sx={{
-                    marginLeft: 15
-                  }}></Grid>
-                </Grid>
-
-                <Stack
-                  direction="row"
-                  justifyContent="center"
-                  spacing={3}
-                  sx={{
-                  marginTop: 1,
-                  marginBottom: 2
-                }}>
-                  <Box onClick = {handleClick}>
-                    <Avatar src={sheetscienceLogo}/>
-                    <Typography variant="h6" className={menuClasses.menuMainText}>
-                      SheetScience
-                    </Typography>
-                  </Box>
-                  <Box>
-                    {< PetsIcon fontSize = 'large' sx = {{color: "#FFA500"}}/>}
-                    <Typography variant="h6" className={menuClasses.menuMainText}>
-                      PetKick
-                    </Typography>
-                  </Box>
-
-                </Stack>
-
-              </Collapse>
-            </Box>
-          </List>
-
-        </Grid>
-
-        <Grid item sx={commonWidthMainMenu}>
-          <List >
-
-            <Box
-              sx={{
-              ...commonStyles,
-              ...commonBorderColor
-            }}>
-              <ListItemButton onClick={handleMenu2} sx={commonBorderColor}>
-                <ListItemIcon>
-                  <DirectionsRunIcon fontSize='large' className={menuClasses.menuIconMain}/>
-                </ListItemIcon>
-                <ListItemText
-                  primary=
-                  {<Typography variant = "h6" className = {menuClasses.menuMainText}> Fitness & Endurance </Typography>}/> {menuItem1
-                  ? <ExpandLess className={menuClasses.menuIconSecondary}/>
-                  : <ExpandMore className={menuClasses.menuIconSecondary}/>}
-              </ListItemButton>
-
-              <Collapse in={menuItem2} timeout="auto" unmountOnExit>
-
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{
-                    pl: 4
-                  }}>
-                    <ListItemIcon>
-                      <StarBorder/>
-                    </ListItemIcon>
-                    <ListItemText primary="Starred"/>
-                  </ListItemButton>
-                </List>
-
-              </Collapse>
-            </Box>
-          </List>
-
-        </Grid>
-
-        <Grid item sx={commonWidthMainMenu}>
-          <List >
-
-            <Box
-              sx={{
-              ...commonStyles,
-              ...commonBorderColor
-            }}>
-              <ListItemButton onClick={handleMenu3} sx={commonBorderColor}>
-                <ListItemIcon>
-                  <MusicNoteIcon fontSize='large' className={menuClasses.menuIconMain}/>
-                </ListItemIcon>
-                <ListItemText
-                  primary=
-                  {<Typography variant = "h6" className = {menuClasses.menuMainText}> Music & Percussion </Typography>}/> {menuItem1
-                  ? <ExpandLess className={menuClasses.menuIconSecondary}/>
-                  : <ExpandMore className={menuClasses.menuIconSecondary}/>}
-              </ListItemButton>
-
-              <Collapse in={menuItem3} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <ListItemButton sx={{
-                    pl: 4
-                  }}>
-                    <ListItemIcon>
-                      <StarBorder fontSize='large' className={menuClasses.menuIconMain}/>
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={< Typography variant = "h6" className = {
-                      menuClasses.menuMainText
-                    } > Youtube Channel </Typography>}/>
-                  </ListItemButton>
-
-                </List>
-              </Collapse>
-            </Box>
-          </List>
-
-        </Grid>
-
-      </Grid>
-
-  
-    </Slide>
-    <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-      <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
-        Not available yet!
-      </Alert>
-    </Snackbar>
+          Not available yet!
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

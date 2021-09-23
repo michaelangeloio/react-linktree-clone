@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 
 //mui components
 import Avatar from '@mui/material/Avatar';
@@ -7,6 +7,10 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Grow from '@mui/material/Grow';
 import LinearProgress from '@mui/material/LinearProgress';
+import IconButton from '@mui/material/IconButton';
+import Popover from '@mui/material/Popover';
+import Tooltip from "@mui/material/Tooltip";
+import Box from '@mui/material/Box';
 
 //mui icons
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -16,6 +20,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 //common components
 import LastFM from '../../components/api/LastFM';
+import {CopyToClipboard} from "react-copy-to-clipboard";
 
 //assets
 import avatarPhoto from '../../assets/images/avatarPhoto.png';
@@ -52,6 +57,23 @@ function Header() {
       clearTimeout(timer1);
     };
   }, []);
+  const [anchorEl,
+    setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open
+    ? 'simple-popover'
+    : undefined;
+
+  const [copiedText,
+    setCopiedText] = useState();
 
   return (
 
@@ -75,40 +97,100 @@ function Header() {
 
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item>
           <Typography className={headerClasses.headerTitle} variant="h3">
             Michael Angelo Rivera
           </Typography>
         </Grid>
-       
 
         <Grid item>
           <LinearProgress color="success" sx={commonWidthDivider}/>
         </Grid>
         <Grid item>
-          <Grid item  container>
+          <Grid item container>
+            <IconButton
+              component="a"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://instagram.com/michaelangrivera">
+              <InstagramIcon
+                sx={{
+                fontSize: "30px",
+                color: "white",
+                margin: .2
+              }}/>
+            </IconButton>
 
-            <InstagramIcon
-              sx={{
-              fontSize: "30px",
-              color: "white", margin: .2
-            }}/>
-            <MailOutlineIcon
-              sx={{
-              fontSize: "30px",
-              color: "white", margin: .2
-            }}/>
-            <LinkedInIcon
-              sx={{
-              fontSize: "30px",
-              color: "white", margin: .2
-            }}/>
-            <GitHubIcon
-              sx={{
-              fontSize: "30px",
-              color: "white", margin: .2
-            }}/>
-            
+            <IconButton onClick={handleClick}>
+              <MailOutlineIcon
+                sx={{
+                fontSize: "30px",
+                color: "white",
+                margin: .2
+              }}/>
+            </IconButton>
+
+            <Popover
+              id={id}
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center'
+            }}
+              transformOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center'
+            }}>
+              <CopyToClipboard
+                text={"ni ni-active-40"}
+                onCopy={() => setCopiedText("ni ni-active-40")}>
+                <Tooltip
+                  title={copiedText === "ni ni-active-40"
+                  ? "This was Copied!"
+                  : "Copy To Clipboard"}
+                  placement="top">
+                  <Box>
+                    <Typography
+                      sx={{
+                      backgroundColor: "gray",
+                      color: "white",
+                      padding: 1,
+                      radius: "50%"
+                    }}>
+                      michael.angelo@michaelangrivera.com
+                    </Typography>
+                  </Box>
+                </Tooltip>
+              </CopyToClipboard>
+
+            </Popover>
+
+            <IconButton
+              component="a"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/in/michaelangelorivera/">
+              <LinkedInIcon
+                sx={{
+                fontSize: "30px",
+                color: "white",
+                margin: .2
+              }}/>
+            </IconButton>
+            <IconButton
+              component="a"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/michaelangrivera">
+              <GitHubIcon
+                sx={{
+                fontSize: "30px",
+                color: "white",
+                margin: .2
+              }}/>
+            </IconButton>
 
           </Grid>
         </Grid>
@@ -116,7 +198,9 @@ function Header() {
           <LastFM/>
         </Grid>
       </Grid>
+
     </Grow>
+
   )
 
 }
