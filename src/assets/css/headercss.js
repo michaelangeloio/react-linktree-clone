@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
   headerTitle: {
     color: "white",
     marginTop: 20
+  },
+  headerIcon: {
+      color: "white"
   }
 }));
 

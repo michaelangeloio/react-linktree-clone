@@ -8,6 +8,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
 
+
+//styling
+import { commonSpacingTop2 } from '../../assets/css/sizingcss';
+
+// assets
+import musicTile from '../../assets/images/musicTile.png'
+
+
 export default function MediaControlCard(props) {
 
   function songTitleETL(title) {
@@ -15,6 +23,15 @@ export default function MediaControlCard(props) {
       return (title.substring(0, 30) + "...")
     } else {
       return (title)
+    }
+  };
+
+  function musicTileETL (tile) {
+    if (tile.includes("2a96cbd8b46e442fc41c2b86b821562f") ) {
+        return (musicTile)
+    }
+    else {
+        return (tile)
     }
   };
 
@@ -26,11 +43,11 @@ export default function MediaControlCard(props) {
       justify="center"
       style={{}}>
       <Grid item sx={{
-        marginRight: 31,
-        marginTop: 1
+        marginRight: 30,
+        ...commonSpacingTop2
       }}>
         <Typography align="right" color="white" fontSize={12}>
-          Currently playing
+          {props.subtext}
         </Typography>
       </Grid>
       <Grid item sx={{}}>
@@ -48,7 +65,7 @@ export default function MediaControlCard(props) {
               width: 80,
               height: 80
             }}
-              image={props.albumArt}
+              image={musicTileETL(props.albumArt)}
               alt="Live from space album cover"/>
             <CardContent >
               <Grid container justify="space-between" alignItems="left" direction="column">

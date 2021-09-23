@@ -14,3 +14,4 @@ root: {
 }));
 
 export default SizedAvatar;
+
