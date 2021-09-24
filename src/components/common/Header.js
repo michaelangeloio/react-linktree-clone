@@ -159,7 +159,7 @@ function Header() {
                       padding: 1,
                       radius: "50%"
                     }}>
-                      michael.angelo@michaelangrivera.com
+                      mar@michaelangrivera.com
                     </Typography>
                   </Box>
                 </Tooltip>
