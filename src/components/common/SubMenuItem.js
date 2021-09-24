@@ -65,7 +65,7 @@ return (
                       component="a"
                       target="_blank"
                       rel="noopener noreferrer"
-                      href="https://github.com/michaelangrivera/michaelangrivera-links"
+                      href="https://github.com/michaelangrivera/react-linktree-clone"
                       sx={{
                       textDecoration: 'none',
                       '&:hover': {
