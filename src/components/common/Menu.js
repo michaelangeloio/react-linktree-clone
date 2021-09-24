@@ -1,5 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import {useEffect} from 'react';
+
+
+//common components
+import SubMenuItem from './SubMenuItem';
 
 //mui components
 import List from '@mui/material/List';
@@ -11,10 +15,6 @@ import Grid from '@mui/material/Grid';
 import {Typography} from '@mui/material';
 import Box from '@mui/material/Box';
 import Slide from '@mui/material/Slide';
-import Divider from '@mui/material/Divider';
-import Stack from '@mui/material/Stack';
-import Chip from '@mui/material/Chip';
-import Avatar from '@mui/material/Avatar';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
@@ -26,8 +26,6 @@ import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import PetsIcon from '@mui/icons-material/Pets';
-import InsertLinkIcon from '@mui/icons-material/InsertLink';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WebIcon from '@mui/icons-material/Web';
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
@@ -38,8 +36,8 @@ import menucss from '../../assets/css/menucss';
 import {commonStyles, commonBorderColor} from '../../assets/css/menucss';
 import {commonWidthMainMenu, commonSpacingTop} from '../../assets/css/sizingcss';
 
-// import ActionAreaCard from './MenuSubList'; assets
-import sheetscienceLogo from '../../assets/images/sheetscience-logo.png';
+
+
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props}/>;
@@ -180,93 +178,8 @@ function Menu() {
                       } > My GitHub </Typography>}/>
                     </ListItemButton>
                   </List>
-                  <Grid
-                    item
-                    sx={{
-                    marginTop: 1,
-                    marginBottom: 2
-                  }}>
-                    <Divider >
-                      <Chip
-                        label={< Typography sx = {{fontSize: 18}}className = {
-                        menuClasses.menuMainText
-                      } > My Apps </Typography>}/>
-                    </Divider>
-                  </Grid>
-                  <Grid container justify="center">
-                    <Grid item sx={{
-                      marginLeft: 15
-                    }}></Grid>
-                  </Grid>
-
-                  <Stack
-                    direction="row"
-                    justifyContent="center"
-                    spacing={3}
-                    sx={{
-                    marginTop: 1,
-                    marginBottom: 2,
-                    ...commonWidthMainMenu
-                  }}>
-                    <Box
-                      component="a"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://github.com/michaelangrivera/michaelangrivera-links"
-                      sx={{
-                      textDecoration: 'none',
-                      '&:hover': {
-                        opacity: [0.9, 0.8, 0.7]
-                      }
-                    }}>
-                      <Grid container item justify="center">
-                        <InsertLinkIcon fontSize="large" className={menuClasses.menuIconMain}/>
-                        <Typography
-                          variant="h6"
-                          sx={{
-                          marginLeft: 1
-                        }}className={menuClasses.menuMainText}>
-                          Linktree Clone
-                        </Typography>
-                      </Grid>
-                    </Box>
-                  </Stack>
-
-                  <Stack
-                    direction="row"
-                    justifyContent="center"
-                    spacing={3}
-                    sx={{
-                    marginTop: 1,
-                    marginBottom: 2,
-                    ...commonWidthMainMenu
-                  }}>
-                    <Box
-                      sx={{
-                      '&:hover': {
-                        opacity: [0.9, 0.8, 0.7]
-                      }
-                    }}
-                      onClick={handleClick}>
-                      <Avatar src={sheetscienceLogo}/>
-                      <Typography variant="h6" className={menuClasses.menuMainText}>
-                        SheetScience
-                      </Typography>
-                    </Box>
-                    <Box
-                      sx={{
-                      '&:hover': {
-                        opacity: [0.9, 0.8, 0.7]
-                      }
-                    }}
-                      onClick={handleClick}>
-                      {< PetsIcon fontSize = 'large' sx = {{color: "#FFA500"}}/>}
-                      <Typography variant="h6" className={menuClasses.menuMainText}>
-                        PetKick
-                      </Typography>
-                    </Box>
-
-                  </Stack>
+                  
+                  <SubMenuItem handleClick = {handleClick} />
 
                 </Collapse>
               </Box>
@@ -275,6 +188,7 @@ function Menu() {
           </Grid>
 
           <Grid item sx={commonWidthMainMenu}>
+
             <List >
 
               <Box

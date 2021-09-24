@@ -20,7 +20,7 @@ export default function MediaControlCard(props) {
 
   function songTitleETL(title) {
     if (title.length > 30) {
-      return (title.substring(0, 30) + "...")
+      return (title.substring(0, 28) + "...")
     } else {
       return (title)
     }
