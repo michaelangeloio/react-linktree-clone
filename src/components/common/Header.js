@@ -156,7 +156,7 @@ function Header() {
                       sx={{
                       backgroundColor: "gray",
                       color: "white",
-                      padding: 1,
+                      padding: 1.01,
                       radius: "50%"
                     }}>
                       mar@michaelangrivera.com
