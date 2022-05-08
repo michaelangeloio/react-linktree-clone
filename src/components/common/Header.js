@@ -22,9 +22,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LastFM from '../../components/api/LastFM';
 import {CopyToClipboard} from "react-copy-to-clipboard";
 
-//assets
-import avatarPhoto from '../../assets/images/avatarPhoto.png';
-
 //styling
 import headercss from '../../assets/css/headercss';
 import {commonWidthDivider} from '../../assets/css/sizingcss';
@@ -91,7 +88,7 @@ function Header() {
         justify="center"
         style={{}}>
         <Grid item>
-          <Avatar src={avatarPhoto} sx={{
+          <Avatar src={`https://media.michaelangrivera.com/michaelangrivera-links/avatar.png`} sx={{
             ...headerAvatar
           }}/>
 

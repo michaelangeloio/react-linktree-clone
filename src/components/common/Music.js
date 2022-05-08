@@ -8,13 +8,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import {CardActionArea} from '@mui/material';
 
-
 //styling
 import { commonSpacingTop2 } from '../../assets/css/sizingcss';
-
-// assets
-import musicTile from '../../assets/images/musicTile.png'
-
 
 export default function MediaControlCard(props) {
 
@@ -28,7 +23,7 @@ export default function MediaControlCard(props) {
 
   function musicTileETL (tile) {
     if (tile.includes("2a96cbd8b46e442fc41c2b86b821562f") ) {
-        return (musicTile)
+        return (`https://media.michaelangrivera.com/michaelangrivera-links/musicTile.png`)
     }
     else {
         return (tile)

@@ -94,7 +94,7 @@ return (
                     marginBottom: 2,
                     ...commonWidthMainMenu
                   }}>
-                    <Box
+                    {/* <Box
                       sx={{
                       '&:hover': {
                         opacity: [0.9, 0.8, 0.7]
@@ -117,7 +117,7 @@ return (
                       <Typography variant="h6" className={menuClasses.menuMainText}>
                         PetKick
                       </Typography>
-                    </Box>
+                    </Box> */}
 
                   </Stack>
 
